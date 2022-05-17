@@ -11,6 +11,6 @@ class GenresController extends Controller
     public function getAllGenres(){
 
         $genres = Genre::All();
-        return view('genres', ["genres"=>$genres]);
+        return view('genres.index', ["genres"=>$genres]);
     }
 }

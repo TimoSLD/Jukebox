@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->string('artist');
             $table->integer('genre_id');
-            $table->time('lenght');
+            $table->time('length');
         });
     }
 
