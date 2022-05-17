@@ -5,24 +5,3 @@ body {
     margin: 0;
 }
 
-.navbar {
-    background-color: #120687;
-    height: 7vh;
-    display: flex;
-    align-items: center;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-    
-    
-}
-
-.auth {
-    display: flex;
-    position: absolute;
-    right: 2%;
-    top: 0;
-}
-
