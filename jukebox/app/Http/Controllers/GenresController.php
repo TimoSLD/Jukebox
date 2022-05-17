@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Genre;
 
-class GenreController extends Controller
+class GenresController extends Controller
 {
     //
-    public function index(){
+    public function getAllGenres(){
 
         $genres = Genre::All();
-        return view('home', ["genres"=>$genres]);
+        return view('genres', ["genres"=>$genres]);
     }
 }

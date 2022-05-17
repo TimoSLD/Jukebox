@@ -37,11 +37,20 @@
                     <ul class="navbar-nav me-auto">
 
                     </ul>
+                    
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <a class="navbar-brand" href="{{ url('/genres') }}">
+                            {{ config('genres', 'genres') }}
+                        </a>
+                        <a class="navbar-brand" href="{{ url('/songs') }}">
+                            {{ config('songs', 'Songs') }}
+                        </a>
                         <!-- Authentication Links -->
                         @guest
+                        
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -69,8 +78,12 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                    
                                 </div>
-                            </li>
+                            
+                        
+                                
+                            
                         @endguest
                     </ul>
                 </div>

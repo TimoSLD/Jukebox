@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\GenreController;
+use App\http\Controllers\GenresController;
+use App\http\Controllers\SongsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\GenreController::class, 'index']);
+Route::get('/genres', [App\Http\Controllers\GenresController::class, 'getAllGenres']);
+
+Route::get('/songs', [App\Http\Controllers\songsController::class, 'getAllSongs']);
 
 Auth::routes();
 
