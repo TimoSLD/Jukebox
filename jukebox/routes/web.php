@@ -28,5 +28,5 @@ Route::get('/genres', [App\Http\Controllers\GenresController::class, 'getAllGenr
 Route::get('/songs', [App\Http\Controllers\songsController::class, 'getAllSongs']);
 //this route to go to view a specific song.
 Route::get('songs/details/{id}', [App\Http\Controllers\songsController::class, 'getSongById'])->name('getSongById');
-
-
+//this route to go to view songs with specific genre.
+Route::get('songs/details/{id}', [App\Http\Controllers\songsController::class, 'getSongById'])->name('getSongById');
