@@ -20,10 +20,13 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+//this route to go to genres page after login.
+Route::get('/home', [App\Http\Controllers\GenresController::class, 'getAllGenres']);
+//this route to go to view all genres.
 Route::get('/genres', [App\Http\Controllers\GenresController::class, 'getAllGenres']);
-
+//this route to go to view all songs.
 Route::get('/songs', [App\Http\Controllers\songsController::class, 'getAllSongs']);
+//this route to go to view a specific song.
+Route::get('songs/details/{id}', [App\Http\Controllers\songsController::class, 'getSongById'])->name('getSongById');
 
-Auth::routes();
 

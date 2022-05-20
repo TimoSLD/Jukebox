@@ -12,5 +12,11 @@ class SongsController extends Controller
         $songs = Song::All();
         return view('songs.index', ["songs"=>$songs]);
     }
+
+    public function getSongById($id){
+
+        return view('songs.details')
+        ->with('song', Song::where('id', $id)->first());
+    }
 }
 
