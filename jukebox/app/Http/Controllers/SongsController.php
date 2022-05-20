@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\song;
-use App\Models\Genre;
+
 
 class SongsController extends Controller
 {
@@ -25,11 +25,12 @@ class SongsController extends Controller
         return view('songs.details')
         ->with('song', Song::where('id', $id)->first());
     }
-
-    public function getAllSongsWithGenre(){
-
-        Product::orderBy('id','desc')->where('song_id', 'genre_id')->get();
-    }
-
+    
+    public function getGenreSongs($id)
+{
+    $songs = Song::where('genre_id', $id)->get();
+        return view('genres.showbygenre', compact('songs'));
+}       
+    
 }
 

@@ -8,7 +8,7 @@
             <div class="card">
                 <div class="card-body">
                 <h5 class="card-title">{{$genre->name}}</h5>
-                <a href="#" class="btn btn-primary">see all {{$genre->name}} songs</a>
+                <a href="{{ route('getGenreSongs', [$genre->id])}}" class="btn btn-primary">see all {{$genre->name}} songs</a>
                 </div>
             </div>
             </div>
