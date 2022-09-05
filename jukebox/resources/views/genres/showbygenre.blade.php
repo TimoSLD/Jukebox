@@ -10,6 +10,7 @@
                 <h5 class="card-title">Song: {{$song->name}}</h5>
                 <p class="card-text">artist: {{$song->artist}}</p>
                 <p class="card-text">genre: {{$song->genre->name}}</p>
+                <a href="{{ route('getSongById', [$song->id])}}" class="btn btn-primary">see info of the song: {{$song->name}}</a>
                 </div>
             </div>
             </div>

@@ -30,3 +30,5 @@ Route::get('/songs', [App\Http\Controllers\songsController::class, 'getAllSongs'
 Route::get('songs/details/{id}', [App\Http\Controllers\songsController::class, 'getSongById'])->name('getSongById');
 //this route to go to view songs with specific genre.
 Route::get('genre/showbygenre/{id}', [App\Http\Controllers\songsController::class, 'getGenreSongs'])->name('getGenreSongs');
+//this route to go to view all playlists.
+Route::get('/playlists', [App\Http\Controllers\playlistController::class, 'getAllplaylists']);

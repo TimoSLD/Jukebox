@@ -14,6 +14,4 @@ class GenresController extends Controller
         $genres = Genre::All();
         return view('genres.index', ["genres"=>$genres]);
     }
-
-    
 }

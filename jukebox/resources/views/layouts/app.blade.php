@@ -48,6 +48,9 @@
                         <a class="navbar-brand" href="{{ url('/songs') }}">
                             {{ config('songs', 'Songs') }}
                         </a>
+                        <a class="navbar-brand" href="{{ url('/playlists') }}">
+                            {{ config('playlists', 'Playlists') }}
+                        </a>
                         <!-- Authentication Links -->
                         @guest
                         
