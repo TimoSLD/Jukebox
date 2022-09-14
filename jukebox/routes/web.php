@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\GenresController;
 use App\http\Controllers\SongsController;
+use App\http\Controllers\PlaylistsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +32,10 @@ Route::get('songs/details/{id}', [App\Http\Controllers\songsController::class, '
 //this route to go to view songs with specific genre.
 Route::get('genre/showbygenre/{id}', [App\Http\Controllers\songsController::class, 'getGenreSongs'])->name('getGenreSongs');
 //this route to go to view all playlists.
-Route::get('/playlists', [App\Http\Controllers\playlistController::class, 'getAllplaylists']);
+Route::get('/playlists', [App\Http\Controllers\PlaylistsController::class, 'getAllplaylists']);
+//this route to go to create playlist.
+Route::get('/playlists/create', [App\Http\Controllers\PlaylistsController::class, 'create']);
+Route::post('/playlists', [App\Http\Controllers\PlaylistsController::class, 'store']);
+
+Route::post('/playlists', [App\Http\Controllers\PlaylistsController::class, 'edit']);
+

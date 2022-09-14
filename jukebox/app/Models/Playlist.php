@@ -10,8 +10,8 @@ class Playlist extends Model
     use HasFactory;
 
     protected $playlist = 'playlist';
-        public $tiemstamps = false;
-        protected $filltable = [
+        public $timestamps = false;
+        protected $fillable = [
             'name', 'user_id'
         ];
     
