@@ -38,4 +38,5 @@ Route::get('/playlists/create', [App\Http\Controllers\PlaylistsController::class
 Route::post('/playlists', [App\Http\Controllers\PlaylistsController::class, 'store']);
 
 Route::get('playlists/edit/{id}', [App\Http\Controllers\PlaylistsController::class, 'edit']);
+Route::post('playlists/storePlaylist/{id}', [App\Http\Controllers\PlaylistsController::class, 'storePlaylist']);
 

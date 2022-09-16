@@ -29,11 +29,19 @@ class PlaylistsController extends Controller
     public function edit($id)
     {
         $playlist = Playlist::find($id);
-        return view('playlists.edit')->with('playlists', $playlist);
+        return view('playlists.edit')->with('playlist', $playlist);
+    }
+
+    public function storePlaylist(Request $request, $id){
+        $playlist = Playlist::find($id);
+        $input = $request->all();
+        $playlist->update($input);
+        return redirect('playlists');  
     }
 
     public function update(Request $request, $id)
     {
+        dd('hello world');
         $playlist = Playlist::find($id);
         $input = $request->all();
         $playlist->update($input);
