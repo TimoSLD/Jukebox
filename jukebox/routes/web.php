@@ -33,10 +33,14 @@ Route::get('songs/details/{id}', [App\Http\Controllers\songsController::class, '
 Route::get('genre/showbygenre/{id}', [App\Http\Controllers\songsController::class, 'getGenreSongs'])->name('getGenreSongs');
 //this route to go to view all playlists.
 Route::get('/playlists', [App\Http\Controllers\PlaylistsController::class, 'getAllplaylists']);
-//this route to go to create playlist.
+//this route to go to create playlist goes to controller, function create.
 Route::get('/playlists/create', [App\Http\Controllers\PlaylistsController::class, 'create']);
+//this route to go to store playlist goes to controller, function store.
 Route::post('/playlists', [App\Http\Controllers\PlaylistsController::class, 'store']);
-
+//this route to go to edit playlist goes to controller, function edit.
 Route::get('playlists/edit/{id}', [App\Http\Controllers\PlaylistsController::class, 'edit']);
+//this route to go to storePlaylist with the post data. goes to controller, function storePlaylist.
 Route::post('playlists/storePlaylist/{id}', [App\Http\Controllers\PlaylistsController::class, 'storePlaylist']);
+
+Route::post('playlists/destroy/{id}', [App\Http\Controllers\PlaylistsController::class, 'destroy']);
 

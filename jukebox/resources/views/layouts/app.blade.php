@@ -37,58 +37,59 @@
                     <ul class="navbar-nav me-auto">
 
                     </ul>
-                    
-
-
+                
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <a class="navbar-brand" href="{{ url('/genres') }}">
-                            {{ config('genres', 'genres') }}
-                        </a>
-                        <a class="navbar-brand" href="{{ url('/songs') }}">
-                            {{ config('songs', 'Songs') }}
-                        </a>
-                        <a class="navbar-brand" href="{{ url('/playlists') }}">
-                            {{ config('playlists', 'Playlists') }}
-                        </a>
-                        <!-- Authentication Links -->
-                        @guest
-                        
+                    @auth
+                        <ul class="navbar-nav ms-auto">
+                            <a class="navbar-brand" href="{{ url('/genres') }}">
+                                {{ config('genres', 'genres') }}
+                            </a>
+                            <a class="navbar-brand" href="{{ url('/songs') }}">
+                                {{ config('songs', 'Songs') }}
+                            </a>
+                            <a class="navbar-brand" href="{{ url('/playlists') }}">
+                                {{ config('playlists', 'Playlists') }}
+                            </a>
+                        </ul>
+                    @endauth
+                    
+                    @guest
+                        <ul class="navbar-nav ms-auto">
+                            <!-- the user is NOT authenticated --> 
+                            <a class="navbar-brand" href="{{ url('/genres') }}">
+                                {{ config('genres', 'genres') }}
+                            </a>
+                            <a class="navbar-brand" href="{{ url('/songs') }}">
+                                {{ config('songs', 'Songs') }}
+                            </a>
+                            <!-- Authentication Links -->
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
-                        @else
+                            @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                    
-                                </div>
-                            
-                        
-                                
-                            
-                        @endguest
-                    </ul>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form> 
+                            </div>   
+                        </ul>
+                    @endguest
                 </div>
             </div>
         </nav>

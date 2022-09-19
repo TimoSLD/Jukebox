@@ -12,6 +12,7 @@ class PlaylistsController extends Controller
 
         $playlists = Playlist::where('user_id', Auth::user()->id)->get();
         return view('playlists.index', ["playlists"=>$playlists]);
+        
     }
 
     public function store(Request $request)
@@ -45,12 +46,12 @@ class PlaylistsController extends Controller
         $playlist = Playlist::find($id);
         $input = $request->all();
         $playlist->update($input);
-        return redirect('playlist')->with('flash_message', 'Playlist Updated!');  
+        return redirect('playlists');  
     }
 
     public function destroy($id)
     {
-        Contact::destroy($id);
-        return redirect('playlist')->with('flash_message', 'Playlist deleted!');  
+        Playlist::destroy($id);
+        return redirect('playlists');  
     }
 }
