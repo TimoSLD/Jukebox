@@ -15,6 +15,12 @@ class PlaylistsController extends Controller
         
     }
 
+    public function getPlaylistById($id){
+
+        return view('playlists.details')
+        ->with('playlist', Playlist::where('id', $id)->first());
+    }
+
     public function store(Request $request)
     {
         $input = $request->all();
@@ -49,9 +55,10 @@ class PlaylistsController extends Controller
         return redirect('playlists');  
     }
 
-    public function destroy($id)
+    public function destroy(Playlist $playlist)
     {
-        Playlist::destroy($id);
-        return redirect('playlists');  
+        $playlist->delete();
+        return redirect()->route('playlists')
+                        ->with('success','Post deleted successfully');
     }
 }

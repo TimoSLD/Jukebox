@@ -41,6 +41,5 @@ Route::post('/playlists', [App\Http\Controllers\PlaylistsController::class, 'sto
 Route::get('playlists/edit/{id}', [App\Http\Controllers\PlaylistsController::class, 'edit']);
 //this route to go to storePlaylist with the post data. goes to controller, function storePlaylist.
 Route::post('playlists/storePlaylist/{id}', [App\Http\Controllers\PlaylistsController::class, 'storePlaylist']);
-
-Route::post('playlists/destroy/{id}', [App\Http\Controllers\PlaylistsController::class, 'destroy']);
-
+//this route to go to detail playlist, goes to controller, function getPlaylistById'.
+Route::get('playlists/details/{id}', [App\Http\Controllers\PlaylistsController::class, 'getPlaylistById']);
