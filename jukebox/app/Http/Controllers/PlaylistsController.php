@@ -55,10 +55,9 @@ class PlaylistsController extends Controller
         return redirect('playlists');  
     }
 
-    public function destroy(Playlist $playlist)
-    {
-        $playlist->delete();
-        return redirect()->route('playlists')
-                        ->with('success','Post deleted successfully');
-    }
+   public function delete($id){
+        $data = Playlist::find($id);
+        $data->delete();
+        return redirect('playlists');  
+   }
 }
