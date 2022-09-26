@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\GenresController;
 use App\http\Controllers\SongsController;
 use App\http\Controllers\PlaylistsController;
+use App\http\Controllers\PlaylistSongController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +44,11 @@ Route::get('playlists/edit/{id}', [App\Http\Controllers\PlaylistsController::cla
 Route::post('playlists/storePlaylist/{id}', [App\Http\Controllers\PlaylistsController::class, 'storePlaylist']);
 //this route to go to detail playlist, goes to controller, function getPlaylistById'.
 Route::get('playlists/details/{id}', [App\Http\Controllers\PlaylistsController::class, 'getPlaylistById']);
+//gets url delete/id, form here it goes to PlaylistsController, function delete.
 Route::get('delete/{id}', [App\Http\Controllers\PlaylistsController::class, 'delete']);
+//gets url playlists/details/{id}, form here it goes to PlaylistSongController, function getPlaylistsSongs.
+Route::get('songs/details/{id}', [App\Http\Controllers\PlaylistsController::class, 'getAllplaylists'])->name('getSongById');
+
+Route::get('playlists/playlist_song/{id}', [App\Http\Controllers\PlaylistSongController::class, 'getAllPlaylists']);
+
+Route::post('add/{song_id}/{playlist_id}', [App\Http\Controllers\PlaylistSongController::class, 'storeSongToPlaylist']);

@@ -6,9 +6,6 @@
                 <div class="card">
                     <div class="card-header">Playlists</div>
                     <div class="card-body">
-                        <a href="{{ url('/playlists/create') }}" class="btn btn-success btn-sm" title="Add New Playlist">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Create new playlist
-                        </a>
                         <br/>
                         <br/>
                         <div class="table-responsive">
@@ -27,9 +24,7 @@
                                         <td>{{ $playlist->name }}</td>
 
                                         <td>
-                                            <a href="{{ url('/playlists/' . 'details/' . $playlist->id) }}" class="btn btn-info btn-sm">View</button></a>
-                                            <a href="{{ url('/playlists/' . 'edit/' . $playlist->id) }}" class="btn btn-primary btn-sm">Edit</button></a>
-                                            <a href={{"delete/" .$playlist->id}} class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"> Delete </a>
+                                            <a href={{"add/" . $id}} class="btn btn-success btn-sm"> add to playlist </a>
                                         </td>
                                     </tr>
                                 @endforeach
