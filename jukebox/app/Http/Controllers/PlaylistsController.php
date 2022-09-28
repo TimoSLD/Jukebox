@@ -15,6 +15,13 @@ class PlaylistsController extends Controller
         
     }
 
+    public function getAllPlaylistsWithSong_id($id){
+
+        $playlists = Playlist::where('user_id', Auth::user()->id)->get();
+        return view('playlists/playlist_song', compact("playlists", "id"));
+        
+    }
+
     public function getPlaylistById($id){
 
         return view('playlists.details')

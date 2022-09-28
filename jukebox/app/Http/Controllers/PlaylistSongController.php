@@ -10,15 +10,5 @@ use App\Models\Song;
 
 class PlaylistSongController extends Controller
 {
-    public function getPlaylistsSongs(){
-  
-    }
-
-    public function getAllPlaylists($id){
-
-        $playlists = Playlist::where('user_id', Auth::user()->id)->get();
-        return view('playlists/playlist_song', compact("playlists", "id"));
-        
-    }
 
 }
