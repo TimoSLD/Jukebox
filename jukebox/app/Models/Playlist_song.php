@@ -10,17 +10,11 @@ class Playlist_song extends Model
 
     use HasFactory;
 
-    protected $playlist = 'playlist';
+    protected $table = 'playlist_song';
         public $timestamps = false;
         protected $fillable = [
-            'name', 'user_id'
+            'playlist_id', 'song_id'
         ];
 
-    public function playlists() {
-        return $this->belongsToMany('Model\Playlist', 'playlist_song');
-    }
-
-    public function songs() {
-        return $this->belongsToMany('Model\Songs', 'playlist_song');
-    }
+    
 }

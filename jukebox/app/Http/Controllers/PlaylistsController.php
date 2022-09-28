@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Playlist;
+use App\Models\Song;
+
+use App\Models\Playlist_song;
 
 class PlaylistsController extends Controller
 {
@@ -23,13 +26,27 @@ class PlaylistsController extends Controller
     }
 
     public function getPlaylistById($id){
-
+        $playlistSongs = Playlist_song::all();
+        $songs = [];
+        for ($i=0; $i < count($playlistSongs); $i++) { 
+            $song = Song::where('id', $playlistSongs[$i]->id)->get();
+            array_push($songs, $song);
+        }
         return view('playlists.details')
-        ->with('playlist', Playlist::where('id', $id)->first());
+        ->with('playlist', Playlist::where('id', $id)->first())
+        ->with(["songs"=>$songs]);
+        
     }
 
-    public function store(Request $request)
-    {
+    public function storeSongToPlaylist($playlist_id, $song_id){
+        playlist_song::create([
+            'song_id' => $song_id,
+            'playlist_id' => $playlist_id
+        ]);
+        return redirect('playlists/details/' . $playlist_id);
+    }
+
+    public function store(Request $request){
         $input = $request->all();
         Playlist::create($input);
         return redirect('playlists')->with('flash_message', 'Playlist Addedd!');  

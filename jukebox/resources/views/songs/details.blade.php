@@ -12,6 +12,7 @@
                 <p class="card-text">Description: {{$song->description}}</p>
                 <p class="card-text">duration: {{$song->length}}</p>
                 <p class="card-text">genre: {{$song->genre->name}}</p>
+                <a href="{{ url('/playlists/playlist_song/' . $song->id ) }}" class="btn btn-success btn-sm"> add song to playlist </a>
                
                 </div>
             </div>

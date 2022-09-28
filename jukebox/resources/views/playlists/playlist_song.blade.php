@@ -24,7 +24,9 @@
                                         <td>{{ $playlist->name }}</td>
 
                                         <td>
-                                            <a href={{"add/" . $id}} class="btn btn-success btn-sm"> add to playlist </a>
+                                            <form action="{{ url('playlists/' . $playlist->id . "/" . $id) }}" method="post">
+                                                @csrf
+                                            <input type="submit" value="add to playlist" class="btn btn-success btn-sm"></br>
                                         </td>
                                     </tr>
                                 @endforeach

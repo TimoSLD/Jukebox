@@ -47,8 +47,9 @@ Route::get('playlists/details/{id}', [App\Http\Controllers\PlaylistsController::
 //gets url delete/id, form here it goes to PlaylistsController, function delete.
 Route::get('delete/{id}', [App\Http\Controllers\PlaylistsController::class, 'delete']);
 //gets url playlists/details/{id}, form here it goes to PlaylistSongController, function getPlaylistsSongs.
-Route::get('songs/details/{id}', [App\Http\Controllers\PlaylistsController::class, 'getAllplaylists'])->name('getSongById');
 
 Route::get('playlists/playlist_song/{id}', [App\Http\Controllers\PlaylistsController::class, 'getAllPlaylistsWithSong_id']);
 
-Route::post('add/{song_id}/{playlist_id}', [App\Http\Controllers\PlaylistSongController::class, 'storeSongToPlaylist']);
+Route::post('playlists/{playlist_id}/{song_id}', [App\Http\Controllers\PlaylistsController::class, 'storeSongToPlaylist']);
+
+Route::get('delete/{id}', [App\Http\Controllers\PlaylistsController::class, 'deleteSongOutPlaylist']);
