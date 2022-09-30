@@ -16,8 +16,8 @@
                 <h5 class="card-title">Song: {{$song[0]->name}}</h5>
                 <p class="card-text">artist: {{$song[0]->artist}}</p>
 
-                <a href="{{ route('getSongById', [$song[0]->id])}}" class="btn btn-primary btn-sm">see info of {{$song[0]->name}}</a>
-                <a href={{"delete/" .$playlist->id}} class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"> Delete </a>
+                {{-- <a href="{{ route('getSongById', [$song[0]->id])}}" class="btn btn-primary btn-sm">see info of {{$song[0]->name}}</a> --}}
+                {{-- <a href={{"delete/" .$playlist->id}} class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"> Delete </a> --}}
                 </div>
             </div>
             </div>

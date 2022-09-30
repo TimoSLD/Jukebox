@@ -24,9 +24,10 @@
                                         <td>{{ $playlist->name }}</td>
 
                                         <td>
-                                            <form action="{{ url('playlists/' . $playlist->id . "/" . $id) }}" method="post">
+                                            <form action="{{ url('playlists/' . $playlist->id . "/" . $song_id) }}" method="get">
                                                 @csrf
                                             <input type="submit" value="add to playlist" class="btn btn-success btn-sm"></br>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

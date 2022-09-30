@@ -20,16 +20,17 @@ class PlaylistsController extends Controller
 
     public function getAllPlaylistsWithSong_id($id){
 
+
         $playlists = Playlist::where('user_id', Auth::user()->id)->get();
-        return view('playlists/playlist_song', compact("playlists", "id"));
+        return view('playlists/playlist_song', ["playlists"=>$playlists], ["song_id"=>$id]);
         
     }
 
     public function getPlaylistById($id){
-        $playlistSongs = Playlist_song::all();
+        $playlistSongs = Playlist_song::where('playlist_id', $id)->get();
         $songs = [];
         for ($i=0; $i < count($playlistSongs); $i++) { 
-            $song = Song::where('id', $playlistSongs[$i]->id)->get();
+            $song = Song::where('id', $playlistSongs[$i]->song_id)->get();
             array_push($songs, $song);
         }
         return view('playlists.details')
@@ -39,9 +40,11 @@ class PlaylistsController extends Controller
     }
 
     public function storeSongToPlaylist($playlist_id, $song_id){
+        
         playlist_song::create([
-            'song_id' => $song_id,
-            'playlist_id' => $playlist_id
+            'playlist_id' => $playlist_id,
+            'song_id' => $song_id
+           
         ]);
         return redirect('playlists/details/' . $playlist_id);
     }
