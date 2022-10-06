@@ -36,7 +36,7 @@ class PlaylistsController extends Controller
         return view('playlists.details')
         ->with('playlist', Playlist::where('id', $id)->first())
         ->with(["songs"=>$songs]);
-        
+
     }
 
     public function storeSongToPlaylist($playlist_id, $song_id){
@@ -54,6 +54,7 @@ class PlaylistsController extends Controller
         Playlist::create($input);
         return redirect('playlists')->with('flash_message', 'Playlist Addedd!');  
     }
+
 
     public function create()
     {
@@ -94,5 +95,11 @@ class PlaylistsController extends Controller
     $playlist_songs = Playlist_song::where('playlist_id', $id)->get();
     $playlist_songs->each->delete();
     return redirect('playlists');  
-}
+    }
+
+public function deleteSongOutPlaylist($song_id, $playlist_id){
+    $playlist_song = Playlist_song::where('song_id', $song_id)->get();
+    $playlist_song->each->delete();
+    return redirect('playlists/details/' . $playlist_id);  
+    }
 }
