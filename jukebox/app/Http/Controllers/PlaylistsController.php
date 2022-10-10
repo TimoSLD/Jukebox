@@ -38,7 +38,7 @@ class PlaylistsController extends Controller
         ->with(["songs"=>$songs]);
 
     }
-
+    
     public function storeSongToPlaylist($playlist_id, $song_id){
         
         playlist_song::create([
