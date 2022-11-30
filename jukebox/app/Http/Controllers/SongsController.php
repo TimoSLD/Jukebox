@@ -32,5 +32,11 @@ class SongsController extends Controller
         return view('genres.showbygenre', compact('songs'));
 }       
     
+public function getAllSongsQueue(Request $request){
+
+    $song = Song::all();
+    $value = app('App\Http\Controllers\SessionController')->sessionGetAll('playlists', $request);
+    return view('/queues/index')->with(['value' => $value, 'song' => $song]);
+}
 }
 

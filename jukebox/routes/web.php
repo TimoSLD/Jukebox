@@ -55,3 +55,10 @@ Route::get('playlists/{playlist_id}/{song_id}', [App\Http\Controllers\PlaylistsC
 Route::get('delete/{id}', [App\Http\Controllers\PlaylistsController::class, 'deletePlaylistWithSongs']);
 
 Route::get('playlists/details/delete/{song_id}/{playlist_id}', [App\Http\Controllers\PlaylistsController::class, 'deleteSongOutPlaylist']);
+
+Route::get('queues/index/{id}', [App\Http\Controllers\PlaylistsController::class, 'add']);
+
+Route::get('/queues/index', [App\Http\Controllers\songsController::class, 'getAllSongsQueue']);
+
+
+

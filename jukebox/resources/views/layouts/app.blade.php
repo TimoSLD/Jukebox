@@ -47,6 +47,9 @@
                                 <a class="navbar-brand" href="{{ url('/playlists') }}">
                                     {{ config('playlists', 'Playlists') }}
                                 </a>
+                                <a class="navbar-brand" href="{{ url('/queues/index') }}">
+                                    {{ config('queues', 'queues') }}
+                                </a>
                             </ul>
                         @endauth
                     </ul>
