@@ -114,7 +114,7 @@ public function remove(Request $request, $id)
     {
         app('App\Http\Controllers\SessionController')->sessionPull('playlists', $id, $request);
 
-        return redirect('/playlist');
+        return redirect('/queues/index');
     }
 
     public function createQueue(Request $request)
