@@ -11,7 +11,9 @@
                 <p class="card-text">artist: {{$song->artist}}</p>
                 <p class="card-text">genre: {{$song->genre->name}}</p>
                 <a href="{{ route('getSongById', [$song->id])}}" class="btn btn-primary btn-sm">see info of {{$song->name}}</a>
-                <a href="{{ url('/playlists/playlist_song/' . $song->id ) }}" class="btn btn-success btn-sm"> add song to playlist </a>
+                @auth
+                    <a href="{{ url('/playlists/playlist_song/' . $song->id ) }}" class="btn btn-success btn-sm"> add song to playlist </a>
+                @endauth
                 </div>
             </div>
             </div>
