@@ -66,6 +66,8 @@ Route::get('queues/index/', [App\Http\Controllers\SessionController::class, 'sho
 
 Route::get('queues/delete/{id}', [App\Http\Controllers\SessionController::class, 'deleteSession']);
 
+Route::get('queues/delete/', [App\Http\Controllers\SessionController::class, 'emptyQueue']);
+
 
 
 
