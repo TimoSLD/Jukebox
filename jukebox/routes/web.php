@@ -60,10 +60,6 @@ Route::get('queues/index/{id}', [App\Http\Controllers\SessionController::class, 
 
 Route::get('queues/index/', [App\Http\Controllers\SessionController::class, 'show']);
 
-//Route::get('/queues/index', [App\Http\Controllers\songsController::class, 'getAllSongsQueue']);
-
-// Route::get('/queues/delete/{id}', [App\Http\Controllers\PlaylistsController::class, 'remove']);
-
 Route::get('queues/delete/{id}', [App\Http\Controllers\SessionController::class, 'deleteSession']);
 
 Route::get('queues/delete/', [App\Http\Controllers\SessionController::class, 'emptyQueue']);
