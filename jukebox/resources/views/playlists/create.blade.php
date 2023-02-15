@@ -12,6 +12,7 @@
         <div style="display:none">
             <input type="text" id="user_id" name="user_id" value="{{Auth::user()->id}}">
         </div>
+       
         <input type="submit" value="Save" class="btn btn-success"></br>
     </form>
   

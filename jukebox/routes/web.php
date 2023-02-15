@@ -64,6 +64,10 @@ Route::get('queues/delete/{id}', [App\Http\Controllers\SessionController::class,
 
 Route::get('queues/delete/', [App\Http\Controllers\SessionController::class, 'emptyQueue']);
 
+Route::get('playlists/{session_id}', [App\Http\Controllers\PlaylistsController::class, 'storeSessionToPlaylist']);
+
+Route::get('queues/playlists/playlist_song/', [App\Http\Controllers\PlaylistsController::class, 'queueToPlaylist']);
+
 
 
 

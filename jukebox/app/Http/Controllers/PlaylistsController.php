@@ -52,7 +52,15 @@ class PlaylistsController extends Controller
 
     public function store(Request $request){
         $input = $request->all();
-        Playlist::create($input);
+        $play = Playlist::create($input);
+
+        $songs = session('song');
+        for ($i=0; $i < count($songs); $i++) {
+            foreach ($songs as $key => $song) {
+                $song['id'];
+                $play->songs()->attach($song['id']);
+            } 
+        }
         return redirect('playlists')->with('flash_message', 'Playlist Addedd!');  
     }
 
@@ -60,6 +68,12 @@ class PlaylistsController extends Controller
     public function create()
     {
         return view('playlists.create');
+    }
+
+    public function queueToPlaylist()
+    {
+        return view('playlists.create');
+        return $queue->queueToPlaylist();
     }
 
     public function edit($id)
@@ -102,5 +116,9 @@ public function deleteSongOutPlaylist($song_id, $playlist_id){
     $playlist_song = Playlist_song::where('song_id', $song_id)->get();
     $playlist_song->each->delete();
     return redirect('playlists/details/' . $playlist_id);  
-    }
+ }
+
+
+
+ 
 }

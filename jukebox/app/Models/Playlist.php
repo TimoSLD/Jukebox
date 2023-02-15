@@ -11,13 +11,13 @@ class Playlist extends Model
     use HasFactory;
 
     protected $playlist = 'playlist';
-        public $timestamps = false;
-        protected $fillable = [
-            'name', 'user_id'
-        ];
+    public $timestamps = false;
+    protected $fillable = [
+        'name', '', 'user_id'
+    ];
 
-        public function songs(){
-            return $this->belongsToMany(Song::class);
-        }
+    public function songs(){
+        return $this->belongsToMany(Song::class);
+    }
 
 }

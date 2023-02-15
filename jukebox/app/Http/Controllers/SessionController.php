@@ -3,34 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Http\Controllers\PlaylistController;
 use App\Models\Song;
 use Illuminate\Support\Facades\Session;
-//manages all session data
+
 class SessionController extends Controller
 {
-
-
     public function show()
 {    
     $songs = session('songs');
     return view('queues/index', compact('songs'));
 }
 
-
-
 public function add(Request $request, $id)
 {
-    $songFromDB = song::find($id);     
-    $request->session()->push('song', $songFromDB);   
+    $song = song::find($id);     
+    $request->session()->push('song', $song);   
     return redirect('queues/index');
 }
 
 public function deleteSession(Request $request, $id){
 
     $songs = $request->session()->get('song'); // Get the array
-    //$var = array_search($id, array_column($songs, 'id'));
-    //unset($var); // Unset the index you want
     foreach($songs as $key => $song){
         if($song->id == $id){
             unset($songs[$key]);
