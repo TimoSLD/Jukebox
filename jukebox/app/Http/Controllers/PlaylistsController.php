@@ -55,12 +55,11 @@ class PlaylistsController extends Controller
         $play = Playlist::create($input);
 
         $songs = session('song');
-        for ($i=0; $i < count($songs); $i++) {
             foreach ($songs as $key => $song) {
                 $song['id'];
                 $play->songs()->attach($song['id']);
             } 
-        }
+    
         return redirect('playlists')->with('flash_message', 'Playlist Addedd!');  
     }
 
