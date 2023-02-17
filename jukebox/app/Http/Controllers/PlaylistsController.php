@@ -75,6 +75,7 @@ class PlaylistsController extends Controller
         return $queue->queueToPlaylist();
     }
 
+
     public function edit($id)
     {
         $playlist = Playlist::find($id);
